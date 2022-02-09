@@ -5,6 +5,13 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import {useLocalStorage} from './hooks/useLocalStorage'
 
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, {SelectChangeEvent} from '@mui/material/Select';
+
 const initialData = [{
   name: "Yair",
   date: "9 февраля 2022 г., 13:30",
@@ -16,9 +23,9 @@ const initialData = [{
 ]
 
 export function DropdownAman() {
-  const [selectedCaller, setSelectedCaller] = useState() 
-  const [name, setName] = useState(" "); 
-   const [dataUser, setDataUser] = useLocalStorage('users', initialData)
+  const [selectedCaller, setSelectedCaller] = useState()
+  const [name, setName] = useState(" ");
+  const [dataUser, setDataUser] = useLocalStorage('users', initialData)
 
   const availableData = dataUser?.find(
     (elem) => elem.name === selectedCaller
@@ -62,30 +69,40 @@ export function DropdownAman() {
         <Button variant="contained" onClick={handleSubmit}>Submit</Button>
         <br /><br />
 
-        <div>
-          <Typography variant="h5">Caller</Typography>
-          <select
-            placeholder="Caller"
-            value={selectedCaller}
-            onChange={(e) => setSelectedCaller(e.target.value)}
-          >
-            <option>--Choose Caller--</option>
-            {dataUser.map((value, key) => {
-              return (
-                <option value={value.name} key={key}>
-                  {value.name}
-                </option>
-              )
-            })}
-          </select>
-        </div>
+
+        <Box sx={{minWidth: 60}}>
+          <FormControl sx={{width:"60px"}}>
+            <InputLabel  >Caller</InputLabel>
+            <Select 
+              value={selectedCaller}
+              label="Caller"
+              onChange={(e) => setSelectedCaller(e.target.value)}
+            >
+
+              {dataUser.map((value, key) => {
+                return (
+                  <MenuItem value={value.name} key={key}>{value.name}</MenuItem>
+                )
+              })}
+
+
+            </Select>
+          </FormControl>
+        </Box>
+ 
+ 
 
         <div>
 
           <h1>{availableData?.date}</h1>
 
-
+          {/* {availableData &&
+            <Button variant="contained" onClick={handleDelete}>Delete</Button>
+          } */}
+ 
         </div>
+
+
       </Container>
     </>
   )
