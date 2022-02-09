@@ -70,10 +70,10 @@ export function DropdownAman() {
         <br /><br />
 
 
-        <Box sx={{minWidth: 60}}>
-          <FormControl sx={{width:"60px"}}>
+        <Box >
+          <FormControl sx={{width: "160px"}}          >
             <InputLabel  >Caller</InputLabel>
-            <Select 
+            <Select
               value={selectedCaller}
               label="Caller"
               onChange={(e) => setSelectedCaller(e.target.value)}
@@ -89,8 +89,8 @@ export function DropdownAman() {
             </Select>
           </FormControl>
         </Box>
- 
- 
+
+
 
         <div>
 
@@ -99,7 +99,7 @@ export function DropdownAman() {
           {/* {availableData &&
             <Button variant="contained" onClick={handleDelete}>Delete</Button>
           } */}
- 
+
         </div>
 
 
