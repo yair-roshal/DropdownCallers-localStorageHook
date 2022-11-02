@@ -22,8 +22,7 @@ const initialData = [
 ]
 
 export function Dropdown() {
-	const inputRef = useRef()
-	const [selectedCaller, setSelectedCaller] = useState()
+ 	const [selectedCaller, setSelectedCaller] = useState()
 	const [name, setName] = useState(' ')
 	const [nameEdit, setNameEdit] = useState(' ')
 	const [dataUser, setDataUser] = useLocalStorage('users', initialData)
@@ -73,8 +72,7 @@ export function Dropdown() {
 				return obj
 			}
 		})
-		console.log('newDataUser :>> ', newDataUser)
-		setDataUser(newDataUser)
+ 		setDataUser(newDataUser)
 	}
 
 	const handleDelete = (caller) => {
