@@ -21,7 +21,7 @@ const initialData = [{
 },
 ]
 
-export function DropdownAman() {
+export function Dropdown() {
   const inputRef = useRef();
   const [selectedCaller, setSelectedCaller] = useState()
   const [name, setName] = useState(" ");
