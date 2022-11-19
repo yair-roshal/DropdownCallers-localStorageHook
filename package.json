@@ -1,5 +1,5 @@
 {
-	"name": "DropdownCallersDates-localStorage",
+	"name": "dropdown-callers-local-storage",
 	"version": "0.1.0",
 	"private": false,
 	"dependencies": {
